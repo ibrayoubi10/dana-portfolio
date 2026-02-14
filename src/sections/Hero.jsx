@@ -1,109 +1,91 @@
 import { motion } from "framer-motion";
-import { Button } from "../components/Button.jsx";
-import { Card } from "../components/Card.jsx";
-import { CheckCircle2, Sparkles } from "lucide-react";
-
-const bullets = [
-  "Support for children with learning difficulties",
-  "Experience with autism and intellectual disabilities",
-  "Personalized strategies, progress tracking, and family collaboration",
-];
+import { Sparkles } from "lucide-react";
 
 export default function Hero() {
   return (
     <section className="pt-10 sm:pt-14 pb-10">
-      <div className="grid lg:grid-cols-2 gap-6 items-stretch">
+      <div className="grid gap-6 items-stretch">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="flex flex-col justify-center"
         >
-          <div className="inline-flex w-fit items-center gap-2 rounded-2xl glass px-3 py-1.5 text-xs text-black/70 shadow-soft">
-            <span className="inline-flex h-5 w-5 items-center justify-center rounded-xl bg-brand-teal/15">
-              <Sparkles className="h-3.5 w-3.5 text-brand-teal" />
-            </span>
-            Tripoli, Lebanon • Online support available
-          </div>
-
-          <h1 className="mt-4 font-display text-3xl sm:text-5xl tracking-tight leading-[1.05]">
-            Helping Children Learn with{" "}
+          {/* Name */}
+          <h1 className="font-display text-4xl sm:text-6xl tracking-tight leading-[1.05]">
+            Dana{" "}
             <span className="bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">
-              Confidence
-            </span>{" "}
-            and{" "}
-            <span className="bg-gradient-to-r from-brand-coral to-brand-blue bg-clip-text text-transparent">
-              Joy
+              El Cheikh
             </span>
           </h1>
 
-          <p className="mt-4 max-w-xl text-sm sm:text-base text-black/70 leading-relaxed">
-            I support children facing learning difficulties through personalized educational
-            strategies, inclusive teaching, and structured interventions—especially for learners
-            with autism and diverse needs.
-          </p>
-
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Button variant="primary" as="a" href="#contact">
-              Book a Session
-            </Button>
-            <Button variant="secondary" as="a" href="#services">
-              Explore Services
-            </Button>
+          {/* Subtitle */}
+          <div className="mt-3 text-sm sm:text-base text-black/70">
+            Special Educator • Learning Support • Inclusive Education
           </div>
 
-          <div className="mt-6 space-y-2">
-            {bullets.map((b) => (
-              <div key={b} className="flex items-start gap-2 text-sm text-black/70">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 text-brand-teal" />
-                <span>{b}</span>
+          {/* Attractive non-card overview */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.08 }}
+            className="mt-6 relative overflow-hidden rounded-3xl border border-black/10 bg-white/45 backdrop-blur shadow-soft"
+          >
+            {/* animated glow blobs */}
+            <motion.div
+              className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-brand-teal/20 blur-3xl"
+              animate={{ x: [0, 8, 0], y: [0, -6, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="pointer-events-none absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-brand-coral/15 blur-3xl"
+              animate={{ x: [0, -10, 0], y: [0, 8, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            />
+
+            <div className="relative p-5 sm:p-6">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div className="inline-flex items-center gap-2 text-xs text-black/70">
+                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white/70 border border-black/10">
+                    <Sparkles className="h-4 w-4 text-brand-teal" />
+                  </span>
+                  <span className="font-semibold">Quick Overview</span>
+                </div>
+
+                <div className="text-xs text-black/60 rounded-full border border-black/10 bg-white/60 px-3 py-1">
+                  Available • On-site & Online
+                </div>
               </div>
-            ))}
-          </div>
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.05 }}
-          className="relative"
-        >
-          <div className="absolute -top-10 -right-10 h-56 w-56 rounded-full bg-brand-teal/20 blur-3xl animate-float" />
-          <div className="absolute -bottom-14 -left-14 h-64 w-64 rounded-full bg-brand-coral/15 blur-3xl animate-float" />
+              <p className="mt-3 text-sm text-black/70 leading-relaxed max-w-2xl">
+                Special Educator offering 1:1 learning support, autism-focused sessions, curriculum
+                adaptation, and parent guidance—on-site and online.
+              </p>
 
-          <Card className="relative overflow-hidden">
-            <div className="font-display text-xl">Quick Overview</div>
-            <p className="mt-2 text-sm text-black/70 leading-relaxed">
-              Special Educator offering 1:1 learning support, autism-focused sessions, curriculum
-              adaptation, and parent guidance—on-site and online.
-            </p>
-
-            <div className="mt-6 grid sm:grid-cols-2 gap-4">
-              <MiniStat label="Focus" value="Children (5–12+)" />
-              <MiniStat label="Languages" value="Arabic • French • English" />
-              <MiniStat label="Sessions" value="On-site & Online" />
-              <MiniStat label="Strength" value="Personalized Plans" />
-            </div>
-
-            <div className="mt-6 rounded-2xl bg-white/60 border border-black/5 p-4">
-              <div className="text-sm font-semibold">Contact</div>
-              <div className="mt-2 text-sm text-black/70 space-y-1">
-                <div>Phone: +961 76 170 79</div>
-                <div>Email: danaelcheikh.2002@gmail.com</div>
+              {/* Stats as chips */}
+              <div className="mt-5 flex flex-wrap gap-2">
+                <InfoChip label="Focus" value="Children (3–12+)" />
+                <InfoChip label="Languages" value="Arabic • French • English" />
+                <InfoChip label="Sessions" value="On-site & Online" />
+                <InfoChip label="Strength" value="Personalized Plans" />
               </div>
             </div>
-          </Card>
+          </motion.div>
         </motion.div>
       </div>
     </section>
   );
 }
 
-function MiniStat({ label, value }) {
+function InfoChip({ label, value }) {
   return (
-    <div className="rounded-2xl bg-white/55 border border-black/5 p-4">
-      <div className="text-xs text-black/60">{label}</div>
-      <div className="mt-1 text-sm font-semibold">{value}</div>
-    </div>
+    <motion.div
+      whileHover={{ y: -2 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="rounded-2xl border border-black/10 bg-white/65 px-4 py-2"
+    >
+      <div className="text-[11px] text-black/60">{label}</div>
+      <div className="text-sm font-semibold text-black/80">{value}</div>
+    </motion.div>
   );
 }

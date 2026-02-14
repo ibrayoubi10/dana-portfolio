@@ -26,7 +26,18 @@ const roles = [
     time: "Mar 2019 – 2023",
     bullets: [
       "One-on-one lessons for children aged 6–10 with tailored strategies.",
-      "Online lessons for children with special needs in Saudi Arabia attending international schools.",
+      "Implemented tailored educational strategies to meet individual learning needs.",
+      "Fostered a supportive learning environment to enhance student's academic growth",
+    ],
+  },
+  {
+    title: "Other Traineeships",
+    place: "Various Centers — Lebanon",
+    time: "November 2021 - January 2023",
+    bullets: [
+      "Dar AL Tarbiya Wal Taalim (DTT) — Tripoli, Lebanon: November 2021 - January 2022",
+      "Center of life - College of the Deddeh Brothers - February 2021 - Nomvember 2021",
+      "Friends in Need: January 2023"
     ],
   },
 ];

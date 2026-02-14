@@ -22,7 +22,7 @@ export default function Education() {
             </div>
             <div>
               <div className="font-semibold">Lebanese Baccalaureate — Life Sciences</div>
-              <div>Greek Orthodox National School for Young Girls, Tripoli (2014–2020)</div>
+              <div>ENGO, Tripoli (2014–2020)</div>
             </div>
           </div>
         </Card>
@@ -30,10 +30,12 @@ export default function Education() {
         <Card>
           <div className="font-display text-lg">Certifications</div>
           <ul className="mt-4 space-y-2 text-sm text-black/70 list-disc pl-5">
-            <li>Braille literacy training (April 2024).</li>
-            <li>Modern methods for kindergarten education (IABC, 4 hours).</li>
-            <li>Music therapy training for children with special needs (36 hours).</li>
+            <li>Braille literacy training (Mountada).</li>
+            <li>Modern methods for kindergarten education (IABC).</li>
+            <li>Music therapy training for children with special needs.</li>
             <li>Public safety & firefighting course (Lebanese firefighters).</li>
+            <li>Volunteer at "مائدة المحبة الميناء" (serving food to the elderly).</li>
+            <li>Volunteer at "تكافل" (charity organization).</li>
           </ul>
         </Card>
       </div>

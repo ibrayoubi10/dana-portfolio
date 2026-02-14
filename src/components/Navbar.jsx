@@ -3,10 +3,9 @@ import { BookOpen, Sparkles } from "lucide-react";
 
 const links = [
   { id: "about", label: "About" },
-  { id: "services", label: "Services" },
-  { id: "approach", label: "Approach" },
   { id: "experience", label: "Experience" },
-  { id: "contact", label: "Contact" },
+  { id: "education", label: "Education" },
+  { id: "approach", label: "Approach" },
 ];
 
 function scrollTo(id) {
@@ -19,18 +18,23 @@ export default function Navbar() {
   return (
     <div className="sticky top-0 z-50 border-b border-black/5 bg-white/55 backdrop-blur">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
+        {/* Brand */}
         <div className="flex items-center gap-2">
           <div className="h-10 w-10 rounded-2xl bg-white/75 border border-black/5 shadow-soft flex items-center justify-center">
             <Sparkles className="h-5 w-5 text-brand-teal" />
           </div>
           <div className="leading-tight">
-            <div className="font-display text-sm sm:text-base">Dana El Cheikh Mohamad</div>
+            {/* Replace name with a brand/title */}
+            <div className="font-display text-sm sm:text-base">Step By Step Learning</div>
+
+            {/* Optional tagline */}
             <div className="text-xs text-black/60 flex items-center gap-1">
-              <BookOpen className="h-3.5 w-3.5" /> Special Educator
+              <BookOpen className="h-3.5 w-3.5" /> Special Education & Support
             </div>
           </div>
         </div>
 
+        {/* Links */}
         <nav className="hidden md:flex items-center gap-1">
           {links.map((l) => (
             <button
@@ -44,9 +48,10 @@ export default function Navbar() {
           ))}
         </nav>
 
+        {/* CTA */}
         <div className="flex items-center gap-2">
-          <Button variant="secondary" as="a" href="#contact">
-            Book a Session
+          <Button variant="secondary" as="a" href="#services">
+              Explore Services
           </Button>
           <Button variant="primary" as="a" href="#contact">
             Contact
