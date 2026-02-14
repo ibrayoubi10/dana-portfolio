@@ -1,42 +1,71 @@
+/* App.css */
+
 #root {
-  max-width: 1280px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: clamp(16px, 3vw, 32px);
   text-align: center;
+
+  /* IMPORTANT: no background behind the page */
+  background: transparent;
 }
 
+/* Optional wrapper spacing if your App has a top-level container */
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: transparent;
+}
+
+/* Logo */
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  height: 5.5em;
+  padding: 1.25em;
+  will-change: transform, filter;
+  transition: transform 220ms ease, filter 220ms ease;
 }
 
+.logo:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.18));
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.18));
+}
+
+/* Keep spin animation if you want it */
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+    animation: logo-spin 18s linear infinite;
   }
 }
 
+/* Card */
 .card {
-  padding: 2em;
+  padding: clamp(16px, 2.5vw, 28px);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(234,240,255,0.95);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10);
+  text-align: left; /* looks more premium than centered blocks */
 }
 
+/* Docs text */
 .read-the-docs {
-  color: #888;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+/* Mobile tweaks */
+@media (max-width: 640px) {
+  .card {
+    text-align: left;
+  }
 }
