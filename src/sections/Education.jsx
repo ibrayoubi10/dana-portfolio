@@ -1,141 +1,105 @@
+import { motion } from "framer-motion";
 import Section from "../components/Section.jsx";
+import { GraduationCap, Award } from "lucide-react";
 
-function EduRow({ idx = 0, title, meta }) {
-  return (
-    <div
-      className="
-        group relative py-4 sm:py-5
-        border-b border-black/10
-        transition-ui duration-350 ease-soft
-        hover:border-black/25
-        motion-safe:animate-fadeUp
-      "
-      style={{ animationDelay: `${idx * 70}ms` }}
-    >
-      <span
-        className="
-          pointer-events-none absolute left-0 bottom-0 h-px w-0
-          bg-primary/70
-          transition-all duration-350 ease-soft
-          group-hover:w-full
-        "
-      />
+const edu = [
+  {
+    title: "Master 1 — Diplôme d'Enseignement (Éducation Spécialisée)",
+    meta:  "Université Saint-Joseph, Ras Maska, Liban (2023–2024)",
+    icon:  "🎓",
+  },
+  {
+    title: "Licence — Éducation Spécialisée",
+    meta:  "Faculté des Sciences Humaines CEULN (2020–2023)",
+    icon:  "📖",
+  },
+  {
+    title: "Baccalauréat Libanais — Sciences de la Vie",
+    meta:  "ENGO, Tripoli (2014–2020)",
+    icon:  "🏫",
+  },
+];
 
-      <div className="flex items-start gap-3 sm:gap-4">
-        <span
-          className="
-            mt-2.5 h-2 w-2 shrink-0 rounded-full
-            bg-primary/60
-            transition-ui duration-350 ease-soft
-            group-hover:bg-primary group-hover:scale-110 group-hover:translate-x-0.5
-          "
-        />
-
-        <div className="min-w-0 text-left">
-          <div className="font-semibold text-text text-[15px] sm:text-base leading-snug">
-            {title}
-          </div>
-          <div className="mt-1 text-sm text-muted leading-relaxed break-words">
-            {meta}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function CertItem({ idx = 0, children }) {
-  return (
-    <li
-      className="
-        group relative flex items-start gap-3 sm:gap-4 py-2.5
-        transition-ui duration-350 ease-soft
-        motion-safe:animate-fadeUp
-      "
-      style={{ animationDelay: `${idx * 55}ms` }}
-    >
-      <span
-        className="
-          pointer-events-none absolute left-0 top-3 h-0 w-[2px]
-          bg-secondary/70 rounded-full
-          transition-all duration-350 ease-soft
-          group-hover:h-6
-        "
-      />
-
-      <span
-        className="
-          mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary/60
-          transition-ui duration-350 ease-soft
-          group-hover:bg-secondary group-hover:scale-110 group-hover:translate-x-0.5
-        "
-      />
-
-      <span className="min-w-0 text-[14px] sm:text-sm text-muted leading-relaxed break-words group-hover:text-text">
-        {children}
-      </span>
-    </li>
-  );
-}
+const certs = [
+  { icon: "👁", text: "Formation en alphabétisation Braille (Mountada)" },
+  { icon: "🧸", text: "Méthodes modernes pour l'éducation préscolaire (IABC)" },
+  { icon: "🎵", text: "Formation en musicothérapie pour enfants à besoins spéciaux" },
+  { icon: "🚒", text: "Sécurité publique & cours de lutte contre l'incendie (Pompiers libanais)" },
+  { icon: "❤️", text: 'Bénévole — "مائدة المحبة الميناء" (distribution de repas aux personnes âgées)' },
+  { icon: "🤲", text: 'Bénévole — "تكافل" (organisation caritative)' },
+];
 
 export default function Education() {
-  const edu = [
-    {
-      title: "Master 1 — Teaching Diploma (Special Education)",
-      meta: "Saint Joseph University, Ras Maska, Lebanon (2023–2024)",
-    },
-    {
-      title: "Bachelor’s Degree — Special Education",
-      meta: "Faculty of Human Sciences CEULN (2020–2023)",
-    },
-    {
-      title: "Lebanese Baccalaureate — Life Sciences",
-      meta: "ENGO, Tripoli (2014–2020)",
-    },
-  ];
-
-  const certs = [
-    "Braille literacy training (Mountada).",
-    "Modern methods for kindergarten education (IABC).",
-    "Music therapy training for children with special needs.",
-    "Public safety & firefighting course (Lebanese firefighters).",
-    "Volunteer at \"مائدة المحبة الميناء\" (serving food to the elderly).",
-    "Volunteer at \"تكافل\" (charity organization).",
-  ];
-
   return (
     <Section
       id="education"
-      title="Education & Certifications"
-      subtitle="Academic training plus specialized courses supporting inclusive education."
+      title="Formation &amp; Certifications"
+      subtitle="Parcours académique solide complété par des formations spécialisées en éducation inclusive."
     >
-      {/* mobile padding + limit line length */}
-      <div className="mx-auto max-w-3xl lg:max-w-none">
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
-          <div className="text-left">
-            <div className="font-display text-lg sm:text-xl text-text">
-              Education
+      <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
+
+        {/* ── Education ── */}
+        <div>
+          <div className="flex items-center gap-2 mb-5">
+            <div className="h-8 w-8 rounded-xl bg-sage-100 flex items-center justify-center">
+              <GraduationCap className="h-4 w-4 text-sage-600" />
             </div>
-            <div className="mt-3">
-              {edu.map((e, i) => (
-                <EduRow key={e.title} idx={i} title={e.title} meta={e.meta} />
-              ))}
-            </div>
+            <span className="font-display text-lg text-ink-900">Formation académique</span>
           </div>
 
-          <div className="text-left">
-            <div className="font-display text-lg sm:text-xl text-text">
-              Certifications
-            </div>
-            <ul className="mt-3">
-              {certs.map((c, i) => (
-                <CertItem key={c} idx={i}>
-                  {c}
-                </CertItem>
-              ))}
-            </ul>
+          <div className="space-y-1">
+            {edu.map((e, i) => (
+              <motion.div
+                key={e.title}
+                initial={{ opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.09, duration: 0.45 }}
+                className="group relative flex items-start gap-4 py-4 border-b border-sage-100 last:border-none hover:border-sage-300 transition-colors"
+              >
+                {/* Animated underline */}
+                <span className="pointer-events-none absolute left-0 bottom-0 h-[1.5px] w-0 rounded-full bg-sage-400 transition-all duration-300 group-hover:w-full" />
+
+                <span className="text-2xl flex-shrink-0 mt-0.5">{e.icon}</span>
+                <div>
+                  <div className="text-sm sm:text-base font-semibold text-ink-800 leading-snug">
+                    {e.title}
+                  </div>
+                  <div className="mt-1 text-xs sm:text-sm text-ink-500">{e.meta}</div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
+
+        {/* ── Certifications ── */}
+        <div>
+          <div className="flex items-center gap-2 mb-5">
+            <div className="h-8 w-8 rounded-xl bg-gold-100 flex items-center justify-center">
+              <Award className="h-4 w-4 text-amber-600" />
+            </div>
+            <span className="font-display text-lg text-ink-900">Certifications &amp; Bénévolat</span>
+          </div>
+
+          <div className="glass rounded-3xl border border-sage-100 overflow-hidden">
+            {certs.map((c, i) => (
+              <motion.div
+                key={c.text}
+                initial={{ opacity: 0, x: 12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07, duration: 0.45 }}
+                className="group flex items-start gap-3 px-5 py-3.5 border-b border-sage-50 last:border-none hover:bg-sage-50/60 transition-colors"
+              >
+                <span className="text-lg flex-shrink-0">{c.icon}</span>
+                <span className="text-sm text-ink-600 leading-relaxed group-hover:text-ink-800 transition-colors">
+                  {c.text}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </Section>
   );

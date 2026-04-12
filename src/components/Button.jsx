@@ -1,18 +1,15 @@
-export function Button({ as = "button", href, onClick, variant = "primary", children }) {
+export function Button({ as = "button", href, onClick, variant = "primary", className = "", children }) {
   const base =
-    "inline-flex items-center justify-center rounded-2xl px-5 py-3 text-sm font-semibold transition " +
-    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-coral/40";
+    "inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-2.5 text-sm font-semibold " +
+    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sage-500/30 cursor-pointer";
 
   const styles = {
-    primary:
-      "text-white shadow-soft bg-gradient-to-r from-brand-coral to-brand-blue " +
-      "hover:opacity-95 active:scale-[0.99]",
-    secondary:
-      "glass text-brand-ink hover:bg-white/80 active:scale-[0.99]",
-    ghost: "text-brand-ink hover:bg-white/60 rounded-2xl px-4 py-2",
+    primary:   "btn-primary",
+    secondary: "btn-secondary",
+    ghost:     "text-ink-700 hover:bg-sage-50 rounded-2xl px-4 py-2 transition",
   };
 
-  const cls = `${base} ${styles[variant]}`;
+  const cls = `${base} ${styles[variant] ?? ""} ${className}`;
 
   if (as === "a") {
     return (
