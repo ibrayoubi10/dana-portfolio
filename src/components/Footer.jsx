@@ -17,11 +17,18 @@ const content = {
     made:   "Fait avec",
     forAll: "pour chaque enfant",
   },
+  ar: {
+    role:   "معلّمة تربية خاصة",
+    links:  [{ href: "#about", label: "عن دانا" }, { href: "#services", label: "الخدمات" }, { href: "#contact", label: "تواصل" }],
+    copy:   "معلّمة تربية خاصة · جميع الحقوق محفوظة.",
+    made:   "صُنع بكلّ",
+    forAll: "لكلّ طفل",
+  },
 };
 
 export default function Footer() {
   const { lang } = useLanguage();
-  const t = content[lang];
+  const t = content[lang] ?? content.en;
   const year = new Date().getFullYear();
   const wa   = "https://wa.me/96179170076";
 

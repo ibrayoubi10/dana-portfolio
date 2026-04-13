@@ -30,7 +30,26 @@ const nav = {
     contact: "Contact",
     mobile:  "Prendre contact",
   },
+  ar: {
+    links: [
+      { id: "about",      label: "عن دانا" },
+      { id: "experience", label: "الخبرة" },
+      { id: "education",  label: "التعليم" },
+      { id: "approach",   label: "المنهجية" },
+      { id: "services",   label: "الخدمات" },
+    ],
+    tagline: "التربية الخاصة والدعم التعليمي",
+    cta:     "استعرض الخدمات",
+    contact: "تواصل",
+    mobile:  "تواصلي معنا",
+  },
 };
+
+const LANGS = [
+  { code: "en", label: "EN" },
+  { code: "fr", label: "FR" },
+  { code: "ar", label: "ع" },
+];
 
 function scrollTo(id) {
   const el = document.getElementById(id);
@@ -40,7 +59,7 @@ function scrollTo(id) {
 
 export default function Navbar() {
   const { lang, setLang } = useLanguage();
-  const t = nav[lang];
+  const t = nav[lang] ?? nav.en;
 
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen]         = useState(false);
@@ -91,18 +110,18 @@ export default function Navbar() {
           {/* ── Right: lang toggle + CTA ── */}
           <div className="flex items-center gap-2">
 
-            {/* Language toggle */}
+            {/* 3-language toggle */}
             <div className="lang-toggle">
-              <button
-                className={`lang-btn ${lang === "en" ? "active" : ""}`}
-                onClick={() => setLang("en")}
-                type="button"
-              >EN</button>
-              <button
-                className={`lang-btn ${lang === "fr" ? "active" : ""}`}
-                onClick={() => setLang("fr")}
-                type="button"
-              >FR</button>
+              {LANGS.map(({ code, label }) => (
+                <button
+                  key={code}
+                  className={`lang-btn ${lang === code ? "active" : ""}`}
+                  onClick={() => setLang(code)}
+                  type="button"
+                >
+                  {label}
+                </button>
+              ))}
             </div>
 
             <Button variant="secondary" as="a" href="#contact"

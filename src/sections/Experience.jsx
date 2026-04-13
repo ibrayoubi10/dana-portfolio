@@ -31,16 +31,30 @@ const data = {
         bullets: ["Dar Al Tarbiya Wal Taalim (DTT) — Tripoli : Nov 2021 – Jan 2022", "Center of Life – Collège des Frères de Deddeh : Fév 2021 – Nov 2021", "Friends in Need : Jan 2023"] },
     ],
   },
+  ar: {
+    title:    "الخبرة المهنية",
+    subtitle: "خبرة في البيئات المدرسية والمراكز المتخصصة، إلى جانب دروس خصوصية فردية منتظمة.",
+    roles: [
+      { emoji: "🏫", title: "معلّمة تربية خاصة (دوام كامل)", place: "مدرسة روضة الفيحاء — طرابلس، لبنان", time: "الوظيفة الحالية", current: true,
+        bullets: ["تعليم الطلاب ذوي الاحتياجات المتنوعة بما فيها التوحّد والإعاقة الذهنية في إطار الفصل الموازي.", "تطبيق أساليب تدريس متخصصة لمعالجة التحدّيات الفردية وتعزيز الاندماج والشمول."] },
+      { emoji: "🧩", title: "معلّمة تربية خاصة متدرّبة", place: "مركز الشمال للتوحّد (NAC) — زغرتا، لبنان", time: "أكتوبر 2022 – مارس 2023", current: false,
+        bullets: ["تقديم دروس مُخصَّصة للأطفال المصابين بالتوحّد بين 5 و12 سنة.", "تكييف المناهج وتقديم جلسات فردية لدعم إتمام التعلّم بنجاح."] },
+      { emoji: "✏️", title: "معلّمة خصوصية", place: "جلسات فردية وعبر الإنترنت (زووم)", time: "مارس 2019 – 2023", current: false,
+        bullets: ["دروس فردية للأطفال بين 6 و10 سنوات باستراتيجيات مُكيَّفة.", "تطبيق أساليب تعليمية مُخصَّصة لتلبية احتياجات كل طالب.", "خلق بيئة داعمة لتعزيز النموّ الأكاديمي والثقة بالنفس."] },
+      { emoji: "🌿", title: "تدريبات عملية أخرى", place: "مراكز متعددة — لبنان", time: "نوفمبر 2021 – يناير 2023", current: false,
+        bullets: ["دار التربية والتعليم (DTT) — طرابلس: نوفمبر 2021 – يناير 2022", "مركز الحياة — كلية إخوة ددة: فبراير 2021 – نوفمبر 2021", "Friends in Need: يناير 2023"] },
+    ],
+  },
 };
 
 export default function Experience() {
   const { lang } = useLanguage();
-  const t = data[lang];
+  const t = data[lang] ?? data.en;
 
   return (
     <Section id="experience" title={t.title} subtitle={t.subtitle}>
       <div className="relative">
-        <div className="absolute left-[21px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-mauve-300 via-blush-300/50 to-transparent hidden sm:block" />
+        <div className="timeline-line absolute left-[21px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-mauve-300 via-blush-300/50 to-transparent hidden sm:block" />
         <div className="space-y-5">
           {t.roles.map((r, i) => (
             <motion.div key={r.title}

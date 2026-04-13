@@ -37,6 +37,22 @@ const content = {
     badge2t:  "Présentiel & Zoom",
     badge2s:  "Disponible en ligne",
   },
+  ar: {
+    badge:    "متاحة · حضوري وعبر الإنترنت",
+    role:     "معلّمة تربية خاصة · دعم تعليمي · تعليم شامل",
+    desc:     "أرافق كلّ طفل بحسب إيقاعه الخاص، باستخدام أساليب مُكيَّفة ودعم فردي وتعاون وثيق مع الأسر — لأنّ كل طفل يستحق النجاح.",
+    cta1:     "تواصلي معنا",
+    cta2:     "استعرض الخدمات",
+    chips:    ["الأعمار 3–12+", "طرابلس، لبنان", "عربي · فرنسي · إنجليزي", "خطط مُخصَّصة"],
+    stats:    [{ v: "+5", l: "سنوات" }, { v: "1:1", l: "جلسات" }, { v: "3", l: "لغات" }],
+    specs:    ["التوحّد والإعاقة الذهنية", "صعوبات التعلّم", "إرشاد الأسرة", "جلسات عبر زووم"],
+    waBtn:    "راسلي على واتساب",
+    degree:   "ماجستير 1 — تربية خاصة · USJ",
+    badge1t:  "خطط IEP مُخصَّصة",
+    badge1s:  "كل طفل فريد من نوعه",
+    badge2t:  "حضوري وزووم",
+    badge2s:  "متاح عبر الإنترنت",
+  },
 };
 
 const chipIcons = [
@@ -54,11 +70,13 @@ const fu = (delay = 0) => ({
 
 export default function Hero() {
   const { lang } = useLanguage();
-  const t = content[lang];
+  const t = content[lang] ?? content.en;
 
   const waUrl = `https://wa.me/96179170076?text=${encodeURIComponent(
     lang === "fr"
       ? "Bonjour Dana, j'ai vu votre portfolio et j'aimerais en savoir plus."
+      : lang === "ar"
+      ? "مرحباً دانا، رأيتُ موقعكِ وأودّ معرفة المزيد."
       : "Hello Dana, I saw your portfolio and I'd like to learn more."
   )}`;
 
@@ -149,7 +167,8 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
           className="hidden lg:block"
         >
-          <div className="relative">
+          {/* Extra padding so absolute badges aren't clipped by parent overflow */}
+          <div className="relative px-7 pt-7 pb-7">
 
             {/* Main card */}
             <div className="glass rounded-5xl shadow-glass glow-ring p-8">
@@ -201,7 +220,7 @@ export default function Hero() {
 
             {/* Floating badge — bottom left */}
             <motion.div
-              className="absolute -bottom-5 -left-5 glass rounded-2xl shadow-glass px-4 py-3 border border-white/70"
+              className="absolute bottom-0 left-0 glass rounded-2xl shadow-glass px-4 py-3 border border-white/70"
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -216,7 +235,7 @@ export default function Hero() {
 
             {/* Floating badge — top right */}
             <motion.div
-              className="absolute -top-5 -right-5 glass rounded-2xl shadow-glass px-4 py-3 border border-white/70"
+              className="absolute top-0 right-0 glass rounded-2xl shadow-glass px-4 py-3 border border-white/70"
               animate={{ y: [0, 7, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             >

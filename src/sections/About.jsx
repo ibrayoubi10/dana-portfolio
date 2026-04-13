@@ -32,11 +32,25 @@ const content = {
     strengthsTitle: "Points forts",
     note: "Séances disponibles en arabe, français et anglais — en présentiel à Tripoli ou à distance via Zoom.",
   },
+  ar: {
+    title:    "عن دانا",
+    subtitle: "دعم دافئ ومنظّم للأطفال الذين يواجهون صعوبات في المدرسة — قائم على استراتيجيات مُخصَّصة وتعاون حقيقي.",
+    p1: "أنا معلّمة تربية خاصة مُكرَّسة لدعم الأطفال الذين يواجهون صعوبات في التعلّم والتحدّيات التطورية. هدفي هو مساعدة كلّ طفل على التقدّم بحسب إيقاعه الخاص، مع تعزيز ثقته بنفسه واستقلاليته ودافعيته نحو التعلّم.",
+    p2: "أعمل بتعاون وثيق مع الأسر والمعلمين لخلق بيئات تعلّم داعمة، باستخدام أساليب تعليمية مُكيَّفة وخطط فردية لجعل التعلّم أكثر سهولةً وإثراءً.",
+    values: [
+      { emoji: "🌱", title: "الدفء والأمان",    desc: "بيئة آمنة ومشجّعة لكلّ طفل." },
+      { emoji: "🎯", title: "التخصيص",          desc: "كلّ خطة مُصمَّمة حول احتياجات الطفل." },
+      { emoji: "🤝", title: "التعاون",           desc: "شراكة حقيقية مع الأسر والمدارس." },
+    ],
+    highlights: ["متخصّصة في التربية الخاصة", "خبرة مع التوحّد والإعاقة الذهنية", "دروس خصوصية (6–10 سنوات)", "دعم عبر الإنترنت للطلاب الدوليين"],
+    strengthsTitle: "نقاط القوة",
+    note: "الجلسات متاحة بالعربية والفرنسية والإنجليزية — حضوريًا في طرابلس أو عن بُعد عبر زووم.",
+  },
 };
 
 export default function About() {
   const { lang } = useLanguage();
-  const t = content[lang];
+  const t = content[lang] ?? content.en;
   return (
     <Section id="about" title={t.title} subtitle={t.subtitle}>
       <div className="grid lg:grid-cols-12 gap-8 items-start">

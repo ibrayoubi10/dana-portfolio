@@ -42,6 +42,25 @@ const data = {
     ],
     closing: "Une approche bienveillante pour aider chaque enfant à gagner en autonomie, en confiance et en réussite scolaire.",
   },
+  ar: {
+    title:    "مرافقة كلّ طفل نحو النجاح",
+    subtitle: "دعم تعليمي مُخصَّص للأطفال الذين يعانون من صعوبات التعلّم — لبناء المهارات والثقة بالنفس والتقدّم على المدى البعيد.",
+    steps: [
+      {
+        icon: Search, badge: "الخطوة 1", title: "التقييم التعليمي",
+        desc: <>تقييم شامل (3 إلى 4 جلسات) لتحديد نقاط قوة الطفل وصعوباته في اللغة والرياضيات.<br /><br />يُقدَّم في النهاية تقرير مفصَّل يتضمّن توصيات للأهل والمدرسة.</>,
+      },
+      {
+        icon: BookOpen, badge: "الخطوة 2", title: "الدعم التعليمي المُخصَّص",
+        desc: <>جلسات فردية مُكيَّفة مع ملفّ الطفل للعمل على القراءة والكتابة والتفكير والرياضيات.<br /><br />كلّ جلسة مدّتها <strong>45 دقيقة</strong> وتتضمّن تحديثًا موجزًا للأهل.</>,
+      },
+      {
+        icon: LineChart, badge: "الخطوة 3", title: "مراجعة التقدّم",
+        desc: <>بعد <strong>6 أشهر</strong> من الدعم، يُقدَّم تقرير متابعة للأهل والمدرسة.<br /><br />يُقيِّم التقدّم المُحرَز ويُعدِّل الأهداف ويُقدِّم توصيات مُحدَّثة.</>,
+      },
+    ],
+    closing: "نهج دافئ لمساعدة كلّ طفل على اكتساب الاستقلالية والثقة بالنفس والنجاح الأكاديمي.",
+  },
 };
 
 const gradients = [
@@ -57,7 +76,7 @@ const iconBg = [
 
 export default function Approach() {
   const { lang } = useLanguage();
-  const t = data[lang];
+  const t = data[lang] ?? data.en;
 
   return (
     <Section id="approach" title={t.title} subtitle={t.subtitle}>

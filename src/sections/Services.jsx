@@ -33,6 +33,21 @@ const data = {
     ctaDesc:  "Contactez Dana pour discuter des besoins spécifiques de votre enfant.",
     ctaBtn:   "Discuter sur WhatsApp",
   },
+  ar: {
+    title:    "الخدمات المقدَّمة",
+    subtitle: "دعم واضح ومنظّم للأطفال الذين يعانون من صعوبات التعلّم — مُكيَّف دائمًا مع إيقاع الطفل واحتياجاته.",
+    services: [
+      { emoji: "🧑‍🏫", title: "جلسات دعم فردية (1:1)",         desc: "جلسات مُخصَّصة لتعزيز استراتيجيات التعلّم وبناء الثقة وتحسين المهارات الأكاديمية.", tag: "الدعم الأساسي" },
+      { emoji: "🧩", title: "دعم التوحّد (5–12 سنة)",           desc: "أساليب مُكيَّفة لدعم التواصل والتعلّم المنظّم والتقدّم في المجالات التطورية الرئيسية.", tag: "التطور العصبي" },
+      { emoji: "📋", title: "تكييف المناهج وخطط IEP",           desc: "خطط تعلّم فردية وأنشطة مُكيَّفة تتوافق مع الاحتياجات الخاصة لكلّ طفل.", tag: "التوافق المدرسي" },
+      { emoji: "✏️", title: "دروس خصوصية ابتدائية (6–10 سنوات)", desc: "تدريس فردي بأساليب مُحفِّزة وتدريجية لتحسين الأداء الأكاديمي.", tag: "أكاديمي" },
+      { emoji: "💻", title: "دعم تربية خاصة عبر الإنترنت",      desc: "جلسات عن بُعد عبر زووم للأطفال في الخارج أو المدارس الدولية.", tag: "عبر الإنترنت" },
+      { emoji: "👨‍👩‍👧", title: "إرشاد وتوجيه الأسرة",           desc: "أدوات عملية لتنظيم الروتين المنزلي واستراتيجيات التحفيز وضمان التواصل بين المدرسة والمنزل.", tag: "الأسرة" },
+    ],
+    ctaTitle: "هل تحتاج إلى خدمة مُخصَّصة؟",
+    ctaDesc:  "تواصلي مع دانا لمناقشة الاحتياجات الخاصة لطفلك.",
+    ctaBtn:   "تواصل عبر واتساب",
+  },
 };
 
 const tagColors = [
@@ -46,10 +61,12 @@ const tagColors = [
 
 export default function Services() {
   const { lang } = useLanguage();
-  const t = data[lang];
+  const t = data[lang] ?? data.en;
   const waUrl = `https://wa.me/96179170076?text=${encodeURIComponent(
     lang === "fr"
       ? "Bonjour Dana, j'aimerais discuter d'un soutien pour mon enfant."
+      : lang === "ar"
+      ? "مرحباً دانا، أودّ مناقشة دعم مُخصَّص لطفلي."
       : "Hello Dana, I'd like to discuss support for my child."
   )}`;
 

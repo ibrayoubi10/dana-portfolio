@@ -43,11 +43,30 @@ const data = {
     ],
     availability: "Disponibilité",
   },
+  ar: {
+    title:    "تواصلي معنا",
+    subtitle: "أرسلي رسالة في أي وقت — واتساب هو أسرع طريقة للوصول إلى دانا.",
+    heading:  "تواصلي بنقرة واحدة.",
+    subtext:  "واتساب هو القناة الأسرع. البريد الإلكتروني متاح للطلبات التفصيلية.",
+    waBtn:    "راسلي عبر واتساب",
+    waText:   "مرحباً دانا، رأيتُ موقعكِ وأودّ الاستفسار عن جلسة.",
+    responseLabel: "وقت الاستجابة",
+    responseVal:   "عادةً خلال 24 ساعة",
+    locationLabel: "الموقع",
+    locationVal:   "طرابلس، لبنان · متاح عبر الإنترنت",
+    tip:      "يُرجى ذكر عمر الطفل وطبيعة صعوبة التعلّم الرئيسية للحصول على ردّ أسرع.",
+    hours: [
+      { day: "الاثنين – الجمعة", time: "بالموعد المسبق" },
+      { day: "السبت",             time: "جلسات صباحية" },
+      { day: "زووم",              time: "مواعيد مرنة" },
+    ],
+    availability: "التوفّر",
+  },
 };
 
 export default function Contact() {
   const { lang } = useLanguage();
-  const t = data[lang];
+  const t = data[lang] ?? data.en;
   const waUrl    = `https://wa.me/96179170076?text=${encodeURIComponent(t.waText)}`;
   const emailUrl = "mailto:danaelcheikh.2002@gmail.com";
 
